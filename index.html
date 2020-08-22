@@ -1,0 +1,202 @@
+<head>
+
+    <title>My Library</title>
+    <link rel="stylesheet" href="style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+</head>
+
+<body>
+    <div id="pageContainer">
+        <div id="topBar">
+            Library
+        </div>
+        <div id="bookArea">
+
+            <div id="addButtonCard">
+                <div id="addButtonForm" class="addButtonForm addButtonFormToggle">
+                    <p>Title:  </p><input type="text" id="titleInput">
+                    <p>Author:  </p><input type="text" id="authorInput">
+                    <p>Pages:  </p><input type="text" id="pagesInput">
+                    <p>Read:  </p><input type="checkbox" id="readInput">
+                </div>
+                <div id="addButton">+</div>
+   
+            </div>
+
+
+            <!--These are just so the rows space evenly at the bottom-->
+            <div class="bookCardNo"></div>
+            <div class="bookCardNo"></div>
+            <div class="bookCardNo"></div>
+            <div class="bookCardNo"></div>
+            <div class="bookCardNo"></div>
+        </div>
+    </div>
+
+    <script>
+
+        let myLibrary = [];
+
+        function Book(title, author, pages, readBool){
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.readBool = readBool;
+
+        }
+
+        Book.prototype.addBook =  function(){
+            myLibrary.push(this);
+        }
+
+
+        Book.prototype.deleteBook = function(){
+            myLibrary = myLibrary.filter(book => book !== this);
+            //depending on implementation, remove card from DOM
+        }
+
+        const bookAreaParentDiv = document.querySelector("#bookArea");
+        const addButtonCardDiv = document.querySelector("#addButtonCard");
+
+        function constructCard(book){
+            //create new div as bookArea child
+            let currentCard = document.createElement("div");
+            currentCard.classList.add("bookCard");
+
+            //create new div for storing the title and add bookTitle class to it
+            let currentCardTitle = document.createElement("div");
+            currentCardTitle.classList.add("bookTitle");
+            currentCardTitle.textContent = book.title;
+            currentCard.appendChild(currentCardTitle);
+
+            //create div for author
+            let currentCardAuthor = document.createElement("div");
+            currentCardAuthor.classList.add("bookAuthor");
+            currentCardAuthor.textContent = book.author;
+            currentCard.appendChild(currentCardAuthor);
+
+            //create div for pages
+            let currentCardPages = document.createElement("div");
+            currentCardPages.classList.add("bookPages");
+            if(book.pages){
+                currentCardPages.textContent = book.pages + " pages";
+            }
+            else{
+                currentCardPages.textContent = "";
+            }
+            currentCard.appendChild(currentCardPages);
+
+            //create button for read add event listener to add or remove the read style with
+
+            //button area add
+                
+            
+            let buttonAreaReference = document.createElement("div");
+            buttonAreaReference.classList.add("ButtonArea");
+
+            //read button add
+            let readButtonReference = document.createElement("div");
+            readButtonReference.classList.add("readButton");
+            readButtonReference.textContent = "Read";
+            readButtonReference.addEventListener("click", bookRead);
+            buttonAreaReference.appendChild(readButtonReference);
+
+            if(book.readBool){
+            currentCard.classList.toggle("bookRead");
+            }
+
+            //delete button add
+            let deleteButtonReference = document.createElement("div");
+            deleteButtonReference.classList.add("deleteButton");
+            deleteButtonReference.textContent = "Delete";
+            deleteButtonReference.addEventListener("click", deleteBook);
+            buttonAreaReference.appendChild(deleteButtonReference);
+
+            currentCard.appendChild(buttonAreaReference);
+
+
+
+            bookAreaParentDiv.insertBefore(currentCard, addButtonCardDiv); 
+        }
+
+
+        function deleteBook(e){
+            e.path[3].removeChild(e.path[2]);
+
+        }
+
+        function bookRead(e){
+            e.path[2].classList.toggle("bookRead");
+        }
+
+        let rendered = false;
+
+        function renderLibrary(){
+            if(rendered){
+                constructCard(myLibrary[myLibrary.length -1]);
+            }
+            else{
+                for(i = 0; i < myLibrary.length; i++){
+                constructCard(myLibrary[i]);
+                rendered = true;
+            }
+
+            }
+
+        
+        }
+
+
+        let addClicked = false;
+
+        function addButtonFunction(){
+            if(addClicked){
+                createBook();
+                dropDownToggle();
+                addClicked = false;
+            }
+            else{
+                dropDownToggle();
+                addClicked = true;
+            }
+        }
+
+        function dropDownToggle(){
+            const formReference = document.querySelector("#addButtonForm");
+            formReference.classList.toggle("addButtonFormToggle");
+        }
+
+        function createBook(){
+            let title = document.querySelector("#titleInput").value;
+            let author = document.querySelector("#authorInput").value;
+            let pages = document.querySelector("#pagesInput").value;
+            let read = document.querySelector("#readInput").checked;
+
+            //reset addbutton values
+            document.querySelector("#titleInput").value = "";
+            document.querySelector("#authorInput").value = "";
+            document.querySelector("#pagesInput").value = "";
+            document.querySelector("#readInput").checked = false;
+
+
+            const newBook = new Book(title, author, pages, read);
+            console.log(newBook);
+            newBook.addBook();
+
+            renderLibrary();
+        }
+
+
+        let addButtonReference = document.querySelector("#addButton");
+        addButton.addEventListener("click", addButtonFunction); 
+
+
+        renderLibrary();
+
+
+
+    </script>
+</body>

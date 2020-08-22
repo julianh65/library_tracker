@@ -1,0 +1,279 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: museo-sans-rounded, sans-serif;
+    font-weight: 300;
+    color: #242a31;
+    font-style: normal;
+}
+
+
+#pageContainer{
+    background-color: rgb(236, 195, 195);
+    display: flex;
+    flex-direction: column;
+}
+
+#topBar{
+    border-bottom: solid;
+    padding-top: 7px;
+    height: 5rem;
+    border-color: #272d33;
+    border-width: 2px;
+    background-color: #E7E9C1;
+    max-height: 5rem;
+}
+
+#bookArea{
+    background: rgb(40,61,79);
+    background: linear-gradient(211deg, rgba(40,61,79,1) 0%, rgba(95,123,146,1) 35%, rgba(231,233,193,1) 100%);    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    padding: 3%;
+    justify-content: space-between;
+}
+
+#topBar{
+    font-size: 50px;
+    text-align: center;
+}
+
+#readInput{
+    transform: scale(1.5);
+    border: none;
+    background-color: white;
+}
+
+
+.bookCard{
+    background-color: #E7E9C1;
+    height: 35rem;
+    width: 20.4%;
+    margin: 1%;
+    display: grid;
+    padding-top: 40px;
+    border-radius: 30px;
+    animation: slidein 0.3s forwards;
+    transition: all 0.1s ease-in-out;
+    -webkit-box-shadow: 0px 4px 16px -2px rgba(41,41,43,0.92);
+    -moz-box-shadow: 0px 4px 16px -2px rgba(41,41,43,0.92);
+    box-shadow: 0px 4px 16px -2px rgba(41,41,43,0.92);
+}
+
+
+.bookRead, .bookCard:hover{
+    transition-duration: 0.1s;
+    background-color: #609438;
+}
+
+.bookCard:hover{
+    background-color: #f1f5a6;
+    -webkit-box-shadow: 0px 11px 30px -2px rgba(41,41,43,0.92);
+    -moz-box-shadow: 0px 11px 30px -2px rgba(41,41,43,0.92);
+    box-shadow: 0px 11px 30px -2px rgba(41,41,43,0.92);
+}
+
+
+.bookRead:hover{
+    background-color: #7cb94d;
+
+}
+@keyframes slidein {
+    from {
+      height: 0px;
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      height:35rem;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes addButtonAnimation {
+    from {
+      height: 0px;
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+
+
+#addButtonCard{
+    background-color: rgba(108, 118, 175, 0.637);
+    height: 35rem;
+    width: 20.4%;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 40px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 4px 16px -2px rgba(41,41,43,0.92);
+    -moz-box-shadow: 0px 4px 16px -2px rgba(41,41,43,0.92);
+    box-shadow: 0px 4px 16px -2px rgba(41,41,43,0.92);
+}
+
+
+
+.addButtonForm{
+    transition: all 1s;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 6px;
+    align-items: center;
+    animation: addButtonAnimation 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-size: 22px;
+}
+
+
+#addButton{
+    text-align: center;
+    width: 40%;
+    font-size: 40px;
+    border: solid;
+    border-width: 2px;
+    border-radius: 30px;
+    transition-duration: 0.1s;
+    -webkit-user-select: none;       
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+    background-color: rgba(160, 156, 156, 0.39);
+
+}
+
+#addButton:hover{
+    transform: scale(1.05);
+    background-color: rgba(223, 223, 223, 0.342)
+    
+}
+
+#addButton:active{
+    background-color: rgba(48, 48, 48, 0.637);
+
+}
+
+input{
+    border: none;
+    height: 35%;
+    border-radius: 10px;
+}
+
+.bookCard > div{
+    text-align: center;
+}
+
+.bookTitle{
+    font-size: 35px;
+}
+
+.bookAuthor{
+    font-size: 30px;
+
+}
+
+.bookPages{
+    font-size: 20px;
+
+}
+
+.ButtonArea{
+    display: flex;
+    justify-content: center;
+}
+
+.readButton{
+    border:solid;
+    display: grid;
+    align-items: center;
+    border-width: 2px;
+    border-radius: 5px;
+    width: 30%;
+    height: 20%;
+    margin: 5px;
+    transition-duration: 0.1s;
+    -webkit-user-select: none;       
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+    background-color: rgba(68, 141, 50, 0.39);
+}
+
+.readButton:hover{
+    transform: scale(1.05);
+    background-color: rgba(223, 223, 223, 0.342)
+    
+}
+
+.readButton:active{
+    background-color: rgba(48, 48, 48, 0.637);
+
+}
+
+.deleteButton{
+    border:solid;
+    display: grid;
+    align-items: center;
+    border-width: 2px;
+    border-radius: 5px;
+    width: 30%;
+    height: 20%;
+    margin: 5px;
+    transition-duration: 0.1s;
+    -webkit-user-select: none;       
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+    background-color: rgba(173, 45, 45, 0.39);
+}
+
+.deleteButton:hover{
+    transform: scale(1.05);
+    background-color: rgba(223, 223, 223, 0.342)
+    
+}
+
+.deleteButton:active{
+    background-color: rgba(48, 48, 48, 0.637);
+
+}
+.addButtonFormToggle{
+    display: none;
+}
+
+
+
+@media(max-width: 1250px){
+    .bookCard{
+        width: 45%;
+    }
+    #addButtonCard{
+        width: 45%;
+    }
+}
+
+
+@media(max-width: 800px){
+    .bookCard{
+        width: 98%;
+        height: 40rem;
+    }
+    #addButtonCard{
+        width: 98%;
+        height: 40rem;    }
+}
+
+
+.bookCardNo{
+    height: 2px;
+    width: 20.4%;
+    margin: 1%;
+}
