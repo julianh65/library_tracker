@@ -1,4 +1,4 @@
-#JavaScript Library Tracker 📚
+# JavaScript Library Tracker 📚
 
 A website that allows users to keep track of books they've read and books they're reading.
 
