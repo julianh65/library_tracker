@@ -1,0 +1,73 @@
+<head>
+
+  <title>My Library</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+  <div id="pageContainer">
+      <div id="topBar">
+          Library
+      </div>
+      <div id="bookArea">
+          <div id="addButtonCard">
+              <div id="addButtonForm" class="addButtonForm addButtonFormToggle">
+                  <p>Title:  </p><input type="text" id="titleInput">
+                  <p>Author:  </p><input type="text" id="authorInput">
+                  <p>Pages:  </p><input type="text" id="pagesInput">
+                  <p>Read:  </p><input type="checkbox" id="readInput">
+              </div>
+              <div id="addButton">+</div>
+ 
+          </div>
+
+
+          <!--These are just so the rows space evenly at the bottom-->
+          <div class="bookCardNo"></div>
+          <div class="bookCardNo"></div>
+          <div class="bookCardNo"></div>
+          <div class="bookCardNo"></div>
+          <div class="bookCardNo"></div>
+      </div>
+  </div>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="/__/firebase/7.19.0/firebase-firestore.js"></script>
+     <script src="/__/firebase/7.19.0/firebase-database.js"></script>
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBDevYjjFiLHfLuHNYpeZW0_2vvug2zb9s",
+    authDomain: "javascript-book-tracker.firebaseapp.com",
+    databaseURL: "https://javascript-book-tracker.firebaseio.com",
+    projectId: "javascript-book-tracker",
+    storageBucket: "javascript-book-tracker.appspot.com",
+    messagingSenderId: "382990283597",
+    appId: "1:382990283597:web:99a36a432a431c8f853d04"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+</script>
+<script src="app.js"> </script>
+
+
+
+</body>
+

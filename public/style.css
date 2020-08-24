@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: museo-sans-rounded, sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-weight: 300;
     color: #242a31;
     font-style: normal;
@@ -9,7 +9,7 @@ body{
 
 
 #pageContainer{
-    background-color: rgb(236, 195, 195);
+    background-color: rgb(195, 231, 236);
     display: flex;
     flex-direction: column;
 }
@@ -18,15 +18,19 @@ body{
     border-bottom: solid;
     padding-top: 7px;
     height: 5rem;
-    border-color: #272d33;
-    border-width: 2px;
-    background-color: #E7E9C1;
+    border-color: #aaaaaa;
+    border-width: 1px;
+    background-color: #ffffff;
     max-height: 5rem;
+    box-shadow: 0px 15px 44px -15px rgba(0, 0, 0, 0.356);
+    position: relative;
+
+
 }
 
 #bookArea{
-    background: rgb(40,61,79);
-    background: linear-gradient(211deg, rgba(40,61,79,1) 0%, rgba(95,123,146,1) 35%, rgba(231,233,193,1) 100%);    display: flex;
+    background-color: rgb(187, 187, 187);
+    display: flex;
     flex-wrap: wrap;
     min-height: 100vh;
     padding: 3%;
@@ -46,7 +50,7 @@ body{
 
 
 .bookCard{
-    background-color: #E7E9C1;
+    background-color: #e7e7e7;
     height: 35rem;
     width: 20.4%;
     margin: 1%;
@@ -63,11 +67,11 @@ body{
 
 .bookRead, .bookCard:hover{
     transition-duration: 0.1s;
-    background-color: #609438;
+    background-color: #74945b;
 }
 
 .bookCard:hover{
-    background-color: #f1f5a6;
+    background-color: #ffffff;
     -webkit-box-shadow: 0px 11px 30px -2px rgba(41,41,43,0.92);
     -moz-box-shadow: 0px 11px 30px -2px rgba(41,41,43,0.92);
     box-shadow: 0px 11px 30px -2px rgba(41,41,43,0.92);
@@ -75,7 +79,7 @@ body{
 
 
 .bookRead:hover{
-    background-color: #7cb94d;
+    background-color: #99ca74;
 
 }
 @keyframes slidein {
